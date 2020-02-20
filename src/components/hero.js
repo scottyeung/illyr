@@ -2,6 +2,8 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import Img from 'gatsby-image'
 
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+
 import styles from './hero.module.css'
 
 const videoJsOptions = {
@@ -18,14 +20,13 @@ export default ({ data }) => (
   <ReactPlayer
     width="100%"
     height="100vh" 
-    muted playing
+    muted playing loop
     crossOrigin="anonymous"
     url='https://rebecca.inverted-audio.com/videos/encrypt/Brave Echo/playlist.m3u8' 
     config={{
     file: {
-      forceHLS: true,
-      hlsOptions: {
-      }
+      forceHLS: !isSafari,
+      forceVideo: true,
     }
   }}
     />
