@@ -1,6 +1,10 @@
 .navigation {
   display: flex;
-  justify-content: center;
+  position: fixed;
+  background: none;
+  z-index: 1;
+  color: white;
+  justify-content: end;
   list-style: none;
   padding: 0;
   margin: 0;
