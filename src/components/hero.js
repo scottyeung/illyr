@@ -2,17 +2,11 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import Img from 'gatsby-image'
 
-const isSafari = /^((?!chrome|android).)*safari/i.test(window.navigator.userAgent)
-
 import styles from './hero.module.css'
 
-const videoJsOptions = {
-  autoplay: true,
-  controls: true,
-  sources: [{
-    src: '',
-    type: 'video/mp4'
-  }]
+const isIos = () => {
+  const userAgent = window.navigator.userAgent.toLowerCase() // Detects iOS devices
+  return /iphone|ipad|ipod/.test(userAgent)
 }
 
 export default ({ data }) => (
@@ -25,7 +19,7 @@ export default ({ data }) => (
     url='https://rebecca.inverted-audio.com/videos/encrypt/Brave Echo/playlist.m3u8' 
     config={{
     file: {
-      forceHLS: !isSafari,
+      forceHLS: !isIos,
       forceVideo: true,
     }
   }}
