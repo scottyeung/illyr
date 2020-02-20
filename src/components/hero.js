@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import Img from 'gatsby-image'
 
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+const isSafari = /^((?!chrome|android).)*safari/i.test(window.navigator.userAgent)
 
 import styles from './hero.module.css'
 
