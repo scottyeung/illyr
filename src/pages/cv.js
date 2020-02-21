@@ -10,7 +10,6 @@ class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulCv.edges')
-    const bio = get(this, 'props.data.allContentfulPerson.edges[0].node.shortBio')
 
     return (
       <Layout location={this.props.location} >
@@ -18,7 +17,6 @@ class BlogIndex extends React.Component {
           <Helmet title={siteTitle} />
           
           <div className="wrapper">
-            {/* <p className="article-list" dangerouslySetInnerHTML={{__html: bio.childMarkdownRemark.html}} /> */}
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
