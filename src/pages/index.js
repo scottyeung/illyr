@@ -66,21 +66,22 @@ class RootIndex extends React.Component {
           <Helmet title={siteTitle} />
 
           <ReactFullpage
-
           licenseKey='' 
           navigation
           scrollOverflow={true}
           sectionSelector={SECTION_SEL}
           afterLoad={this.afterLoad.bind(this)}
-          controlArrows={false}
+          controlArrows={true}
           render={comp => (
             <ReactFullpage.Wrapper>
               {projects.map(({ node }, index) => (
                 <div key={node.slug} className={SEL}>
                   <div className="slide">
+                    <p className="title">{node.title}</p>
                     <p className='sound'
-                       onClick={()=>this.setState({muted:!this.state.muted})} 
-                    >Sound</p>
+                       onClick={()=>this.setState({muted:!this.state.muted})}>
+                       Sound
+                    </p>
                     <Hero
                           data={node} 
                           isPlaying={ index == this.state.currentIndex ? true : false }
@@ -143,6 +144,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          title
           slug
           description {
             childMarkdownRemark {
