@@ -19,7 +19,7 @@ body {
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
-  background: #eee;
+  background: #000;
   margin: 0;
 }
 
@@ -92,6 +92,10 @@ a {
   width: calc(100% - 10vmin);
   margin: 0 auto;
   padding: 10vmin 0;
+}
+
+p {
+  white-space: pre-wrap;
 }
 
 /**
