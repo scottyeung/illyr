@@ -59,6 +59,7 @@ class RootIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulCv.edges')
     const projects = get(this, 'props.data.allContentfulProjects.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const ref = React.createRef();
 
     return (
       <Layout location={this.props.location} >
@@ -86,6 +87,7 @@ class RootIndex extends React.Component {
                           data={node} 
                           isPlaying={ index == this.state.currentIndex ? true : false }
                           muted={ this.state.muted }
+                          ref = {ref}
                     />
                   </div>
                   <div className="slide">
