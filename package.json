@@ -7,8 +7,10 @@
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
   "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.17",
     "gatsby-image": "^2.0.38",
     "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-react-image-map": "^1.0.0-4",
     "gatsby-plugin-sharp": "^2.0.34",
     "gatsby-source-contentful": "^2.0.48",
     "gatsby-transformer-remark": "^2.3.8",
@@ -16,8 +18,13 @@
     "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-full-page": "^0.1.7",
     "react-helmet": "^5.2.0",
+    "react-lazyload": "^2.6.5",
+    "react-on-screen": "^2.1.1",
+    "react-page-scroller": "^2.0.6-beta",
     "react-player": "^1.15.2",
+    "react-slick": "^0.25.2",
     "sharp": "^0.22.0",
     "videojs": "^1.0.0"
   },

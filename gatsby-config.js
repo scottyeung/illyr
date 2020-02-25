@@ -18,7 +18,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'i l l y r',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -29,6 +29,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
-    }
+    },
+    'gatsby-plugin-react-image-map'
   ],
 }

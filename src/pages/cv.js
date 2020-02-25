@@ -2,24 +2,22 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './blog.module.css'
+import styles from './cv.module.css'
 import Layout from "../components/layout"
 import ArticlePreview from '../components/article-preview'
 
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const posts = get(this, 'props.data.allContentfulCv.edges')
 
     return (
       <Layout location={this.props.location} >
-        <div style={{ background: '#fff' }}>
+        <div className={styles.cv}>
           <Helmet title={siteTitle} />
-          <div className={styles.hero}>
-            Blog
-          </div>
+          
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+            <h2 className="section-headline">CV</h2>
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
@@ -39,7 +37,7 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
+  query CVIndexQuery {
     site {
       siteMetadata {
         title

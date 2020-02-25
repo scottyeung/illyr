@@ -12,3 +12,8 @@
   border: 1px solid #A0A0A0;
   margin-right: .5em;
 }
+
+.preview_image {
+  position: fixed;
+  display: none;
+}

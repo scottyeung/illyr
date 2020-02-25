@@ -3,32 +3,107 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
+import Img from 'gatsby-image'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import ReactFullpage from '@fullpage/react-fullpage'; 
+
+const SEL = 'custom-section';
+const SECTION_SEL = `.${SEL}`;
 
 class RootIndex extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentIndex: 0,
+      muted: true
+    };
+  }
+
+  afterLoad(origin, destination) {
+      this.setState({currentIndex: destination.index});      
+  }
+
+  handleAddSection() {
+    this.setState(state => {
+      const { fullpages } = state;
+      const { length } = fullpages;
+      fullpages.push({
+        text: `section ${length + 1}`,
+        id: Math.random(),
+      });
+
+      return {
+        fullpages: [...fullpages],
+      };
+    });
+  }
+
+  handleRemoveSection() {
+    this.setState(state => {
+      const { fullpages } = state;
+      const newPages = [...fullpages];
+      newPages.pop();
+
+      return { fullpages: newPages };
+    });
+  }
+
+  moveSectionDown() {
+    window.fullpage_api.moveSectionDown();
+  }
+
   render() {
+
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const posts = get(this, 'props.data.allContentfulCv.edges')
+    const projects = get(this, 'props.data.allContentfulProjects.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
       <Layout location={this.props.location} >
-        <div style={{ background: '#fff' }}>
+        <div style={{ background: '#000' }}>
           <Helmet title={siteTitle} />
-          <Hero data={author.node} />
-          {/* <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div> */}
+
+          <ReactFullpage
+
+          licenseKey='' 
+          navigation
+          scrollOverflow={true}
+          sectionSelector={SECTION_SEL}
+          afterLoad={this.afterLoad.bind(this)}
+          controlArrows={false}
+          render={comp => (
+            <ReactFullpage.Wrapper>
+              {projects.map(({ node }, index) => (
+                <div key={node.slug} className={SEL}>
+                  <div className="slide">
+                    <p className='sound'
+                       onClick={()=>this.setState({muted:!this.state.muted})} 
+                    >Sound</p>
+                    <Hero
+                          data={node} 
+                          isPlaying={ index == this.state.currentIndex ? true : false }
+                          muted={ this.state.muted }
+                    />
+                  </div>
+                  <div className="slide">
+                    <h1
+                      dangerouslySetInnerHTML={{
+                        __html: node.description.childMarkdownRemark.html,
+                      }}
+                    />                  
+                  </div>
+                  <div className="slide">
+                  {node.gallery.map((items, i) => (
+                    <Img key={i} fluid={items.fluid} />
+                  ))}
+                  </div>
+                </div>
+              ))}
+            </ReactFullpage.Wrapper>
+          )}
+        />
         </div>
       </Layout>
     )
@@ -44,7 +119,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulCv(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
           title
@@ -61,6 +136,25 @@ export const pageQuery = graphql`
               html
             }
           }
+        }
+      }
+    }
+    allContentfulProjects {
+      edges {
+        node {
+          id
+          slug
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
+          gallery {
+            fluid(resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid_tracedSVG
+             }
+          }
+          video
         }
       }
     }

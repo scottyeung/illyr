@@ -14,11 +14,16 @@
   max-height: 400px;
 }
 
+.content {
+  color: white;
+  background: black;
+}
+
 .heroDetails {
   position: absolute;
   background: rgba(0, 0, 0, 0.7);
   left: 50%;
-  bottom: 0;
+  top: 25%;
   transform: translate(-50%, 0);
   font-size: 14px;
   padding: 0 0.5em;
