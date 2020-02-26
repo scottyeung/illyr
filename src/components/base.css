@@ -42,7 +42,20 @@ video {
 }
 
 .fp-tableCell h1 {
-  padding: 0px 100px 0px 100px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.fp-tableCell h1 > p {
+  font-size: 25px;
+}
+
+.fp-controlArrow.fp-prev {
+  border-width: 18.5px 14px 18.5px 0 !important;
+}
+
+.fp-controlArrow.fp-next {
+  border-width: 18.5px 0 18.5px 14px !important;
 }
 
 .fp-controlArrow.fp-next {
@@ -51,6 +64,10 @@ video {
 
 .fp-controlArrow.fp-prev {
   left: 50px !important;
+}
+
+#fp-nav {
+  margin-top: -50px !important;
 }
 
 #fp-nav ul li a span {
@@ -105,9 +122,10 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
+  max-width: 780px;
   /* display: grid; */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 5vmin;
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 5vmin; */
 }
 
 /**
