@@ -5,7 +5,15 @@ import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
-import ReactFullpage from '@fullpage/react-fullpage'; 
+import ReactFullpage from '@fullpage/react-fullpage';
+import BackgroundImage from 'gatsby-background-image'
+
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 const SEL = 'custom-section';
 const SECTION_SEL = `.${SEL}`;
@@ -72,24 +80,31 @@ class RootIndex extends React.Component {
           scrollOverflow={true}
           sectionSelector={SECTION_SEL}
           afterLoad={this.afterLoad.bind(this)}
-          controlArrows={true}
+          controlArrows={ isMobile ? false : true }
           render={comp => (
             <ReactFullpage.Wrapper>
               {projects.map(({ node }, index) => (
                 <div key={node.slug} className={SEL}>
-                  <div className="slide">
-                    <p className="title">{node.title}</p>
-                    <p className='sound'
-                       onClick={()=>this.setState({muted:!this.state.muted})}>
-                       Sound
-                    </p>
-                    <Hero
-                          data={node} 
-                          isPlaying={ index == this.state.currentIndex ? true : false }
-                          muted={ this.state.muted }
-                          ref = {ref}
-                    />
-                  </div>
+                  <BrowserView>
+                    <div className="slide">
+                      <p className="title">{node.title}</p>
+                      <p className='sound'
+                        onClick={()=>this.setState({muted:!this.state.muted})}>
+                        Sound
+                      </p>
+                      <Hero
+                            data={node} 
+                            isPlaying={ index == this.state.currentIndex ? true : false }
+                            muted={ this.state.muted }
+                      />
+                    </div>
+                  </BrowserView>
+                  <MobileView>
+                    <div className="slide"
+                          style={{backgroundImage: `url("${node.gallery[0].fluid.src}")`}}>
+                      <p className="title">{node.title}</p>
+                    </div>
+                  </MobileView>
                   <div className="slide">
                     <h1
                       dangerouslySetInnerHTML={{

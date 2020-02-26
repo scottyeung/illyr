@@ -81,9 +81,36 @@ video {
 
 .title, .sound {
   position: absolute;
-  left: 44px;
+  left: 5.5vmin;
   font-size: 30px;
   z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .title, .sound {
+    left: 8.2vmin;
+    font-size: 25px;
+  }
+
+  .fp-tableCell h1 {
+    max-width: 355px;
+    margin: 0 auto;
+    padding-top: 60px;
+  }
+
+  .fp-tableCell h1 > p {
+    font-size: 20px;
+  }
+
+  .slide {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .wrapper {
+    width: calc(100% - 16vmin) !important;
+    padding: 18vmin 0 !important;
+  }
 }
 
 .title {
