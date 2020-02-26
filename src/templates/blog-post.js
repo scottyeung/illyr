@@ -17,7 +17,6 @@ class BlogPostTemplate extends React.Component {
         <div className={heroStyles.content}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
           <div className={heroStyles.hero}>
-            {/* <Img className={heroStyles.heroImage} alt={post.title} fluid={post.heroImage.fluid} /> */}
           </div>
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
@@ -52,11 +51,6 @@ export const pageQuery = graphql`
     contentfulCv(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
       body {
         childMarkdownRemark {
           html
