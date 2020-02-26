@@ -16,7 +16,9 @@ import {
 } from "react-device-detect";
 
 const SEL = 'custom-section';
+const SLIDE = 'slide';
 const SECTION_SEL = `.${SEL}`;
+const SLIDE_SEL = `.${SLIDE}`;
 
 class RootIndex extends React.Component {
 
@@ -79,6 +81,8 @@ class RootIndex extends React.Component {
           navigation
           scrollOverflow={true}
           sectionSelector={SECTION_SEL}
+          slideSelector={SLIDE_SEL}
+          slidesNavigation={true}
           afterLoad={this.afterLoad.bind(this)}
           controlArrows={ isMobile ? false : true }
           render={comp => (
@@ -110,7 +114,7 @@ class RootIndex extends React.Component {
                       dangerouslySetInnerHTML={{
                         __html: node.description.childMarkdownRemark.html,
                       }}
-                    />                  
+                    />
                   </div>
                   <div className="slide">
                   {node.gallery.map((items, i) => (

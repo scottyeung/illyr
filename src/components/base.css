@@ -86,39 +86,61 @@ video {
   z-index: 2;
 }
 
-@media screen and (max-width: 768px) {
-  .title, .sound {
-    left: 8.2vmin;
-    font-size: 25px;
-  }
 
+@media screen and (max-width: 768px) {
+  .title {
+    padding: 0 1vmin;
+    left: 30px;
+    font-size: 20px;
+  }
+  
   .fp-tableCell h1 {
     max-width: 355px;
+    text-align: center;
     margin: 0 auto;
     padding-top: 60px;
+    padding-bottom: 60px;
   }
-
+  
   .fp-tableCell h1 > p {
     font-size: 20px;
   }
-
+  
   .slide {
     background-position: center;
     background-size: cover;
   }
-
+  
   .wrapper {
     width: calc(100% - 16vmin) !important;
     padding: 18vmin 0 !important;
   }
 }
 
+@media screen and (max-width: 350px) {
+  .title {
+    padding: 0 .5vmin !important;
+  }
+  .wrapper {
+    width: calc(100% - 19vmin) !important;
+    padding: 27vmin 0 !important;
+  }
+}
 .title {
   top: 50px;
 }
 
 .sound {
   bottom: 0;
+}
+
+.fp-slidesNav.fp-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.fp-slidesNav ul li a span {
+  background: white !important;
 }
 
 h1,
@@ -133,9 +155,9 @@ a {
 }
 
 .wrapper {
-  width: calc(100% - 10vmin);
+  width: calc(100% - 11vmin);
   margin: 0 auto;
-  padding: 10vmin 0;
+  padding: 13vmin 0;
 }
 
 p {
