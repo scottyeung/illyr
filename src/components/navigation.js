@@ -14,7 +14,7 @@ export default class Navigation extends React.Component {
       <nav role="navigation">
         <ul className={styles.navigation}>
           <li className={styles.navigationItem}>
-            <Link to="/">illyr</Link>
+            <Link to="/">I L L Y R</Link>
           </li>
           <li className={styles.navigationItem}>
             <Link to="/cv/">CV</Link>
