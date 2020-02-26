@@ -172,6 +172,7 @@ p {
   padding: 0;
   list-style: none;
   max-width: 780px;
+  letter-spacing: 1px;
   /* display: grid; */
   /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 5vmin; */
