@@ -18,8 +18,7 @@ class BlogIndex extends React.Component {
           <Helmet title={siteTitle} />
           
           <div className="wrapper">
-            <p className="article-list" dangerouslySetInnerHTML={{__html: bio.childMarkdownRemark.html}} />
-            <h2 className="section-headline">CV</h2>
+            {/* <p className="article-list" dangerouslySetInnerHTML={{__html: bio.childMarkdownRemark.html}} /> */}
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
@@ -50,6 +49,11 @@ export const pageQuery = graphql`
         node {
           title
           slug
+          heroImage {
+            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           description {

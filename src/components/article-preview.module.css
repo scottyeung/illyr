@@ -1,5 +1,5 @@
 .previewTitle {
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .tag {
@@ -16,4 +16,14 @@
 .preview_image {
   position: fixed;
   display: none;
+}
+
+.drag {
+  position: fixed;
+  display: none;
+}
+
+.preview {
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
 }

@@ -69,7 +69,6 @@ class RootIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulCv.edges')
     const projects = get(this, 'props.data.allContentfulProjects.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
-    const ref = React.createRef();
 
     return (
       <Layout location={this.props.location} >
@@ -77,14 +76,18 @@ class RootIndex extends React.Component {
           <Helmet title={siteTitle} />
 
           <ReactFullpage
+          debug
+
           licenseKey='' 
-          navigation
+          navigation={true}
+          navigationTooltips={['01', '02', '03', '04', '05']}
+          showActiveTooltip={true}
           scrollOverflow={true}
           sectionSelector={SECTION_SEL}
           slideSelector={SLIDE_SEL}
           slidesNavigation={true}
           afterLoad={this.afterLoad.bind(this)}
-          controlArrows={ isMobile ? false : true }
+          controlArrows={false}
           render={comp => (
             <ReactFullpage.Wrapper>
               {projects.map(({ node }, index) => (
@@ -92,10 +95,9 @@ class RootIndex extends React.Component {
                   <BrowserView>
                     <div className="slide">
                       <p className="title">{node.title}</p>
-                      <p className='sound'
-                        onClick={()=>this.setState({muted:!this.state.muted})}>
-                        Sound
-                      </p>
+                      <img className='speaker'
+                        src='./speaker.svg'
+                        onClick={()=>this.setState({muted:!this.state.muted})} />
                       <Hero
                             data={node} 
                             isPlaying={ index == this.state.currentIndex ? true : false }
@@ -186,7 +188,9 @@ export const pageQuery = graphql`
         node {
           name
           shortBio {
-            shortBio
+            childMarkdownRemark {
+              html
+            }
           }
           title
           heroImage: image {
