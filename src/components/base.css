@@ -57,7 +57,25 @@ video {
 }
 
 .fp-tableCell h1 > p {
-  font-size: 25px;
+  font-size: 15px;
+}
+
+.gatsby-image-wrapper {
+  width: 33.33%;
+  height: 100vh;
+  display: inline-block;
+}
+
+.trigger {
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  bottom: 17px;
+  position: absolute;
+}
+
+.fp-slidesNav {
+  width: 900px
 }
 
 .fp-controlArrow.fp-prev {
@@ -109,7 +127,7 @@ video {
   position: absolute;
   width: 25px;
   color: white;
-  left: 30px;
+  left: 40px;
   fill: white;
   z-index: 2;
   height: 25px;
@@ -228,7 +246,7 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: .85em;
+  font-size: .8em;
   max-width: 1080px;
   letter-spacing: 1px;
   /* display: grid; */

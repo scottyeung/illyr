@@ -95,9 +95,12 @@ class RootIndex extends React.Component {
                   <BrowserView>
                     <div className="slide">
                       <p className="title">{node.title}</p>
-                      <img className='speaker'
-                        src='./speaker.svg'
-                        onClick={()=>this.setState({muted:!this.state.muted})} />
+                      <div onClick={()=>this.setState({muted:!this.state.muted})}>
+                        <img 
+                          className='speaker'
+                          src='./speaker.svg'
+                        />
+                      </div>
                       <Hero
                             data={node} 
                             isPlaying={ index == this.state.currentIndex ? true : false }

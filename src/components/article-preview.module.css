@@ -1,5 +1,7 @@
 .previewTitle {
   font-size: 1.4em;
+  left: 70px;
+  position: relative;
 }
 
 .tag {
