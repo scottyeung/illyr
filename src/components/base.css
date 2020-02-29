@@ -110,7 +110,7 @@ video {
 .title, .sound {
   position: absolute;
   left: 5.5vmin;
-  font-size: 30px;
+  font-size: 25px;
   z-index: 2;
 }
 
@@ -120,6 +120,7 @@ video {
   height: 10vh;
   display: flex;
   font-family: 'Aktiv Grotesk';
+  font-style: italic;
 }
 
 .speaker {
