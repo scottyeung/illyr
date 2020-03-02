@@ -123,6 +123,29 @@ video {
   font-style: italic;
 }
 
+.divTableBody {
+  display: table-row-group;
+}
+
+.divTableRow {
+  display: table-row;
+}
+
+.divTableBody {
+  display: table-row-group;
+}
+
+.divTableCell {
+  display: table-cell;
+  width: 50%;
+  display: table-cell;
+}
+
+.divTableCell:nth-child(1) {
+  text-align: right;
+  padding-right: 20px;
+}
+
 .speaker {
   bottom: 25px;
   position: absolute;
