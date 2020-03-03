@@ -80,7 +80,7 @@ class RootIndex extends React.Component {
 
           licenseKey='' 
           navigation={true}
-          navigationTooltips={['01', '02', '03', '04', '05']}
+          navigationTooltips={['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']}
           showActiveTooltip={true}
           scrollOverflow={true}
           sectionSelector={SECTION_SEL}

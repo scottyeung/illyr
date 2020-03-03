@@ -137,13 +137,32 @@ video {
 
 .divTableCell {
   display: table-cell;
+}
+
+.fp-slides .divTableCell {
   width: 50%;
-  display: table-cell;
+}
+
+.article-list .divTableCell:nth-child(1) {
+  width: 50px;
+}
+
+.article-list .divTableCell:nth-child(3) {
+  width: 600px;
+}
+
+.article-list .divTableCell:nth-child(2) {
+  width: 360px;
 }
 
 .divTableCell:nth-child(1) {
   text-align: right;
   padding-right: 20px;
+}
+
+.divTableCell:nth-child(4) {
+  width: 400px;
+  text-align: right;
 }
 
 .speaker {
@@ -271,7 +290,8 @@ p {
   padding: 0;
   list-style: none;
   font-size: .8em;
-  max-width: 1080px;
+  max-width: 1280px;
+  overflow: hidden;
   letter-spacing: 1px;
   /* display: grid; */
   /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -304,4 +324,22 @@ p {
 
 .list-inline li {
   display: inline-block;
+}
+
+.about-col { 
+  display:flex;
+  justify-content: space-between;
+}
+
+.about-col p {
+  margin: 0;
+}
+
+.press {
+  text-align: right;
+  font-size: 12px;
+}
+
+.press a{
+  display: block;
 }
