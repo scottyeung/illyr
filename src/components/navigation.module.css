@@ -1,5 +1,5 @@
 .navigation {
-  display: flex;
+  display: block;
   position: fixed;
   background: none;
   z-index: 1;
@@ -13,10 +13,12 @@
   font-size: 0.85em;
   text-transform: lowercase;
   right: 0;
+  top: 40px;
 }
 
 .navigationItem {
-  display: inline-flex;
+  display: block;
+  text-align: right;
   align-items: center;
   margin: 0 1em;
 }

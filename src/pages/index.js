@@ -26,7 +26,7 @@ class RootIndex extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      muted: true
+      muted: false
     };
   }
 
@@ -77,12 +77,12 @@ class RootIndex extends React.Component {
 
           <ReactFullpage
           debug
-
           licenseKey='' 
           navigation={true}
           navigationTooltips={['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']}
           showActiveTooltip={true}
           scrollOverflow={true}
+          scrollHorizontally={true}
           sectionSelector={SECTION_SEL}
           slideSelector={SLIDE_SEL}
           slidesNavigation={true}
