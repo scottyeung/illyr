@@ -85,7 +85,6 @@ class RootIndex extends React.Component {
           afterLoad={this.afterLoad.bind(this)}
           controlArrows={false}
           render={comp => (
-            <BrowserView>
             <ReactFullpage.Wrapper>
               {projects.map(({ node }, index) => (
                 <div key={node.slug} className={SEL}>
@@ -134,7 +133,6 @@ class RootIndex extends React.Component {
                 </div>
               ))}
             </ReactFullpage.Wrapper>
-            </BrowserView>
           )}
         />
         </div>
