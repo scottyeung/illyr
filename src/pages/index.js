@@ -86,10 +86,10 @@ class RootIndex extends React.Component {
           afterLoad={this.afterLoad.bind(this)}
           controlArrows={false}
           render={comp => (
+            <BrowserView>
             <ReactFullpage.Wrapper>
               {projects.map(({ node }, index) => (
                 <div key={node.slug} className={SEL}>
-                  <BrowserView>
                     <div className="slide">
                       <p className="title">{node.title}</p>
                       <div onClick={()=>this.setState({muted:!this.state.muted})}>
@@ -111,7 +111,6 @@ class RootIndex extends React.Component {
                       }}
                     />
                   </div>
-                  </BrowserView>
                 
                   {node.gallery && 
                   <div className="slide">
@@ -123,7 +122,6 @@ class RootIndex extends React.Component {
                   {node.zine && <div className="slide">
                     <Img fluid={node.zine.fluid} className='single'/>
                   </div>}
-                  <BrowserView>
                   {node.behindTheScene && 
                   <div className="slide">
                       <div className='playContainer' onClick={()=>this.setState({isBTS:!this.state.isBTS})}>
@@ -134,10 +132,10 @@ class RootIndex extends React.Component {
                       </div>
                     <Hero data={node.behindTheScene} isPlaying={this.state.isBTS} />
                   </div>}
-                  </BrowserView>
                 </div>
               ))}
             </ReactFullpage.Wrapper>
+            </BrowserView>
           )}
         />
         </div>
