@@ -63,8 +63,8 @@ export const pageQuery = graphql`
               }
             }
             draggableGallery {
-              fluid(maxWidth: 1680, quality: 100) {
-                ...GatsbyContentfulFluid_tracedSVG
+              fluid(maxWidth: 1680, quality: 80) {
+                ...GatsbyContentfulFluid
                }
             }
           }
