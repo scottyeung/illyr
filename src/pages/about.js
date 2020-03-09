@@ -64,7 +64,7 @@ export const pageQuery = graphql`
             }
             draggableGallery {
               fluid(maxWidth: 480, quality: 80) {
-                ...GatsbyContentfulFluid_tracedSVG
+                ...GatsbyContentfulFluid
                }
             }
           }

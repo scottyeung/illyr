@@ -187,7 +187,7 @@ export const pageQuery = graphql`
             }
           }
           gallery {
-            fluid(maxWidth: 1680, quality: 100) {
+            fluid(maxWidth: 1680, quality: 80) {
               ...GatsbyContentfulFluid_tracedSVG
              }
           }
