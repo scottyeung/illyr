@@ -13,8 +13,6 @@ import styles from './index.css'
 import {
   BrowserView,
   MobileView,
-  isBrowser,
-  isMobile
 } from "react-device-detect";
 
 const SEL = 'custom-section';
@@ -196,7 +194,7 @@ export const pageQuery = graphql`
           video
           zine {
             fluid(maxWidth: 880, quality: 90) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
              }
           }
           behindTheScene
@@ -220,7 +218,7 @@ export const pageQuery = graphql`
               resizingBehavior: PAD
               background: "rgb:000000"
             ) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }
