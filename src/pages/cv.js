@@ -47,11 +47,6 @@ export const pageQuery = graphql`
         node {
           title
           slug
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid
-            }
-          }
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           description {

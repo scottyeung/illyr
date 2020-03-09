@@ -164,7 +164,7 @@ export const pageQuery = graphql`
           tags
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-             ...GatsbyContentfulFluid
+             ...GatsbyContentfulFluid_tracedSVG
             }
           }
           description {
@@ -187,14 +187,14 @@ export const pageQuery = graphql`
             }
           }
           gallery {
-            fluid(maxWidth: 1680, quality: 80) {
-              ...GatsbyContentfulFluid
+            fluid(maxWidth: 1280, quality: 90) {
+              ...GatsbyContentfulFluid_tracedSVG
              }
           }
           video
           zine {
             fluid(maxWidth: 880, quality: 90) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
              }
           }
           behindTheScene
@@ -218,7 +218,7 @@ export const pageQuery = graphql`
               resizingBehavior: PAD
               background: "rgb:000000"
             ) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
