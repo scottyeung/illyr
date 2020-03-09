@@ -14,7 +14,7 @@ export default ({ data, isPlaying, muted }) => (
       height="100vh"
       muted={muted} playing={isPlaying} loop
       crossOrigin="anonymous"
-      url={data.video} 
+      url={data} 
       config={{
         file: {
           forceHLS: !isIos,

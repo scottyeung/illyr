@@ -4,18 +4,42 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styles from './cv.module.css'
 import Layout from "../components/layout"
+import Img from 'gatsby-image'
+import Draggable from 'react-draggable'; // The default
 
 class AboutIndex extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      width: 0,
+      height: 0
+    }
+  }
+
+  componentDidMount() {
+    this.setState({width: window.innerWidth, height: window.innerHeight})
+  }
+
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const person = get(this, 'props.data.allContentfulPerson.edges[0].node.shortBio')
+    const person = get(this, 'props.data.allContentfulPerson.edges[0].node')
+
+    let max = 500, min = 900;
 
     return (
       <Layout location={this.props.location} >
         <div className={styles.cv}>
           <Helmet title={siteTitle} />
           <div className="wrapper">
-          <p className={styles.about} dangerouslySetInnerHTML={{__html: person.childMarkdownRemark.html}} />
+          <p className={styles.about} dangerouslySetInnerHTML={{__html: person.shortBio.childMarkdownRemark.html}} />
+          <div className="draggable" style={{height: '500px', width: '500px', padding: '10px', position: 'relative'}}>
+          {person.draggableGallery.map((items, i) => (
+            <Draggable key={i} handle=".handle" style={{position: 'relative'}}><div>
+              <Img className="handle" fluid={items.fluid} style={{position: 'absolute', top: `Math.floor(Math.random() * (max) / 2)`, left: Math.floor(Math.random() * (min) / 2), width: '300px'}} />
+              </div></Draggable>
+          ))}
+          </div>
           </div>
         </div>
       </Layout>
@@ -34,6 +58,11 @@ export const pageQuery = graphql`
               childMarkdownRemark {
                 html
               }
+            }
+            draggableGallery {
+              fluid(maxWidth: 1680, quality: 100) {
+                ...GatsbyContentfulFluid_tracedSVG
+               }
             }
           }
         }

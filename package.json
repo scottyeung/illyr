@@ -20,6 +20,7 @@
     "react": "^16.8.6",
     "react-device-detect": "^1.11.14",
     "react-dom": "^16.8.6",
+    "react-draggable": "^4.2.0",
     "react-full-page": "^0.1.7",
     "react-helmet": "^5.2.0",
     "react-lazyload": "^2.6.5",

@@ -5,8 +5,10 @@ import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
-import ReactFullpage from '@fullpage/react-fullpage';
+import ReactFullpage from '@fullpage/react-fullpage'
 import BackgroundImage from 'gatsby-background-image'
+
+import styles from './index.css'
 
 import {
   BrowserView,
@@ -26,7 +28,8 @@ class RootIndex extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      muted: false
+      muted: false,
+      isBTS: false
     };
   }
 
@@ -102,18 +105,18 @@ class RootIndex extends React.Component {
                         />
                       </div>
                       <Hero
-                            data={node} 
-                            isPlaying={ index == this.state.currentIndex ? true : false }
+                            data={node.video} 
+                            isPlaying={ index == this.state.currentIndex && !this.state.isBTS ? true : false }
                             muted={ this.state.muted }
                       />
                     </div>
                   </BrowserView>
-                  <MobileView>
+                  {/* <MobileView>
                     <div className="slide"
                           style={{backgroundImage: `url("${node.gallery[0].fluid.src}")`}}>
                       <p className="title">{node.title}</p>
                     </div>
-                  </MobileView>
+                  </MobileView> */}
                   <div className="slide">
                     <h1
                       dangerouslySetInnerHTML={{
@@ -121,11 +124,24 @@ class RootIndex extends React.Component {
                       }}
                     />
                   </div>
-                  <div className="slide">
-                  {node.gallery.map((items, i) => (
-                    <Img key={i} fluid={items.fluid} />
+                  {node.gallery && <div className="slide">
+                  {node.gallery && node.gallery.slice(0,3).map((items, i) => (
+                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? 'multiple' : 'single'} />
                   ))}
                   </div>
+                  }
+                  {node.zine && <div className="slide">
+                    <Img fluid={node.zine.fluid} className='single'/>
+                  </div>}
+                  {node.behindTheScene && <div className="slide">
+                      <div className='playContainer' onClick={()=>this.setState({isBTS:!this.state.isBTS})}>
+                        <img 
+                          className={`play ${this.state.isBTS ? "hidden" : "show"}`}
+                          src='https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_play_arrow_48px-512.png'
+                        />
+                      </div>
+                    <Hero data={node.behindTheScene} isPlaying={this.state.isBTS} />
+                  </div>}}
                 </div>
               ))}
             </ReactFullpage.Wrapper>
@@ -178,11 +194,17 @@ export const pageQuery = graphql`
             }
           }
           gallery {
-            fluid(resizingBehavior: SCALE) {
+            fluid(maxWidth: 1680, quality: 100) {
               ...GatsbyContentfulFluid_tracedSVG
              }
           }
           video
+          zine {
+            fluid(maxWidth: 880, quality: 90) {
+              ...GatsbyContentfulFluid_tracedSVG
+             }
+          }
+          behindTheScene
         }
       }
     }

@@ -61,9 +61,8 @@ video {
 }
 
 .gatsby-image-wrapper {
-  width: 33.33%;
-  height: 100vh;
-  display: inline-block;
+  width: 100%;
+  overflow: scroll;
 }
 
 .trigger {
@@ -355,4 +354,29 @@ p {
 
 .press a{
   display: block;
+}
+
+.playContainer {
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  align-content: center;
+  justify-content: center
+}
+
+.play {
+  width: 100px;
+  height: 100px;
+  align-self: center;
+  filter: invert(1);
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block
 }
