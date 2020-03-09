@@ -10,18 +10,6 @@ import { MobileView } from "react-device-detect";
 
 class AboutIndex extends React.Component {
 
-  constructor(props){
-    super(props)
-    this.state = {
-      width: 0,
-      height: 0
-    }
-  }
-
-  componentDidMount() {
-    this.setState({width: window.innerWidth, height: window.innerHeight})
-  }
-
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const person = get(this, 'props.data.allContentfulPerson.edges[0].node')
