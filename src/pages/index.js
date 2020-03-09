@@ -6,9 +6,6 @@ import Hero from '../components/hero'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import ReactFullpage from '@fullpage/react-fullpage'
-import BackgroundImage from 'gatsby-background-image'
-
-import styles from './index.css'
 
 import {
   BrowserView,
@@ -77,7 +74,6 @@ class RootIndex extends React.Component {
           <Helmet title={siteTitle} />
 
           <ReactFullpage
-          debug
           licenseKey='' 
           navigation={true}
           navigationTooltips={['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']}
@@ -117,8 +113,9 @@ class RootIndex extends React.Component {
                   </div>
                   </BrowserView>
                 
-                  {node.gallery && <div className="slide">
-                  {node.gallery && node.gallery.slice(0,3).map((items, i) => (
+                  {node.gallery && 
+                  <div className="slide">
+                  {node.gallery.map((items, i) => (
                     <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? 'multiple' : 'single'} />
                   ))}
                   </div>
@@ -126,7 +123,8 @@ class RootIndex extends React.Component {
                   {node.zine && <div className="slide">
                     <Img fluid={node.zine.fluid} className='single'/>
                   </div>}
-                  {node.behindTheScene && <div className="slide">
+                  {node.behindTheScene && 
+                  <div className="slide">
                       <div className='playContainer' onClick={()=>this.setState({isBTS:!this.state.isBTS})}>
                         <img 
                           className={`play ${this.state.isBTS ? "hidden" : "show"}`}
