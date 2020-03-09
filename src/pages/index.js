@@ -194,7 +194,7 @@ export const pageQuery = graphql`
           video
           zine {
             fluid(maxWidth: 880, quality: 90) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
              }
           }
           behindTheScene
@@ -218,7 +218,7 @@ export const pageQuery = graphql`
               resizingBehavior: PAD
               background: "rgb:000000"
             ) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
