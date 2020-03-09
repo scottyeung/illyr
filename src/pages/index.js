@@ -111,12 +111,7 @@ class RootIndex extends React.Component {
                       />
                     </div>
                   </BrowserView>
-                  {/* <MobileView>
-                    <div className="slide"
-                          style={{backgroundImage: `url("${node.gallery[0].fluid.src}")`}}>
-                      <p className="title">{node.title}</p>
-                    </div>
-                  </MobileView> */}
+                
                   <div className="slide">
                     <h1
                       dangerouslySetInnerHTML={{
@@ -141,7 +136,7 @@ class RootIndex extends React.Component {
                         />
                       </div>
                     <Hero data={node.behindTheScene} isPlaying={this.state.isBTS} />
-                  </div>}}
+                  </div>}
                 </div>
               ))}
             </ReactFullpage.Wrapper>
