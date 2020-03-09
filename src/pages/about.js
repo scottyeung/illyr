@@ -5,7 +5,8 @@ import Helmet from 'react-helmet'
 import styles from './cv.module.css'
 import Layout from "../components/layout"
 import Img from 'gatsby-image'
-import Draggable from 'react-draggable'; // The default
+import Draggable from 'react-draggable'; 
+import { MobileView } from "react-device-detect";
 
 class AboutIndex extends React.Component {
 
@@ -33,13 +34,15 @@ class AboutIndex extends React.Component {
           <Helmet title={siteTitle} />
           <div className="wrapper">
           <p className={styles.about} dangerouslySetInnerHTML={{__html: person.shortBio.childMarkdownRemark.html}} />
-          <div className="draggable" style={{height: '500px', width: '500px', padding: '10px', position: 'relative'}}>
+          <MobileView>
+          <div className="draggable" style={{height: '300px', width: '100%', overflow:'hidden', position: 'relative'}}>
           {person.draggableGallery.map((items, i) => (
             <Draggable key={i} handle=".handle" style={{position: 'relative'}}><div>
-              <Img className="handle" fluid={items.fluid} style={{position: 'absolute', top: `Math.floor(Math.random() * (max) / 2)`, left: Math.floor(Math.random() * (min) / 2), width: '300px'}} />
+              <Img className="handle" fluid={items.fluid} style={{position: 'absolute', top: `Math.floor(Math.random() * (max) / 2)`, left: Math.floor(Math.random() * (min) / 2), width: '150px'}} />
               </div></Draggable>
           ))}
           </div>
+          </MobileView>
           </div>
         </div>
       </Layout>

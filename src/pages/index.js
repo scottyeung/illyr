@@ -110,8 +110,6 @@ class RootIndex extends React.Component {
                             muted={ this.state.muted }
                       />
                     </div>
-                  </BrowserView>
-                
                   <div className="slide">
                     <h1
                       dangerouslySetInnerHTML={{
@@ -119,6 +117,8 @@ class RootIndex extends React.Component {
                       }}
                     />
                   </div>
+                  </BrowserView>
+                
                   {node.gallery && <div className="slide">
                   {node.gallery && node.gallery.slice(0,3).map((items, i) => (
                     <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? 'multiple' : 'single'} />
@@ -177,7 +177,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulProjects {
+    allContentfulProjects(sort: {fields: [projectOrder], order: ASC}) {
       edges {
         node {
           id

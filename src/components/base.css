@@ -257,6 +257,21 @@ fp-slidesNav ul li a.active span {
     width: calc(100% - 19vmin) !important;
     padding: 27vmin 0 !important;
   }
+  .about-col p:nth-child(2) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .article-list .divTableCell:nth-child(3) {
+    display: none;
+  }
+  #fp-nav.fp-right {
+    right: 10px !important;
+  }
+  .article-list .divTableCell:nth-child(2) {
+    width: 100%;
+  }
 }
 
 .sound {
