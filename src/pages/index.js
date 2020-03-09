@@ -72,7 +72,6 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location} >
         <div style={{ background: '#000' }}>
           <Helmet title={siteTitle} />
-
           <ReactFullpage
           licenseKey='' 
           navigation={true}
