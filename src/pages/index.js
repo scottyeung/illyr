@@ -123,6 +123,7 @@ class RootIndex extends React.Component {
                   {node.zine && <div className="slide">
                     <Img fluid={node.zine.fluid} className='single'/>
                   </div>}
+                  <BrowserView>
                   {node.behindTheScene && 
                   <div className="slide">
                       <div className='playContainer' onClick={()=>this.setState({isBTS:!this.state.isBTS})}>
@@ -133,6 +134,7 @@ class RootIndex extends React.Component {
                       </div>
                     <Hero data={node.behindTheScene} isPlaying={this.state.isBTS} />
                   </div>}
+                  </BrowserView>
                 </div>
               ))}
             </ReactFullpage.Wrapper>
