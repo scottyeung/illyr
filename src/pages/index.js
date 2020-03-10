@@ -76,6 +76,7 @@ class RootIndex extends React.Component {
                 width="100%"
                 controls
                 playsinline
+                playing={false}
                 crossOrigin="anonymous"
                 url={node.video}
                 config={{
@@ -84,7 +85,7 @@ class RootIndex extends React.Component {
                     forceVideo: true,
                     attributes: {
                       disablePictureInPicture: true,
-                      preload: 'metadata'
+                      preload: 'none'
                     },
                   }
                 }}
