@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import ReactFullpage from '@fullpage/react-fullpage'
 import Styles from './index.css'
 import ReactPlayer from 'react-player'
-import { BrowserView, MobileView } from 'react-device-detect'
+import { BrowserView, MobileView, isSafari } from 'react-device-detect'
 
 const SEL = 'custom-section';
 const SLIDE = 'slide';
@@ -63,8 +63,6 @@ class RootIndex extends React.Component {
 
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const projects = get(this, 'props.data.allContentfulProjects.edges')
-
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 
     return (
       <Layout location={this.props.location} >
