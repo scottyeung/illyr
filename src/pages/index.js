@@ -77,6 +77,7 @@ class RootIndex extends React.Component {
                 controls 
                 crossOrigin="anonymous"
                 url={node.video}
+                playsinline
                 config={{
                   file: {
                     forceHLS: !isSafari,
