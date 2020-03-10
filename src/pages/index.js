@@ -64,25 +64,30 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const projects = get(this, 'props.data.allContentfulProjects.edges')
 
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+
     return (
       <Layout location={this.props.location} >
         <div style={{ background: '#000' }}>
           <Helmet title={siteTitle} />
           <MobileView>
           {projects.map(({ node }, index) => (
-            <div key={node.slug} class='project'>
+            <div key={node.slug} className='project'>
               <p className='title'>{node.title}</p>
               <ReactPlayer       
                 width="100%"
                 controls 
                 crossOrigin="anonymous"
-                url={node.video} 
+                url={node.video}
                 config={{
                   file: {
-                    forceHLS: true,
+                    forceHLS: !isSafari,
                     forceVideo: true,
+                    attributes: {
+                      disablePictureInPicture: true
+                    }
                   }
-                }} 
+                }}
               />
             </div>
           ))}
