@@ -6,11 +6,8 @@ import Hero from '../components/hero'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import ReactFullpage from '@fullpage/react-fullpage'
-
-import {
-  BrowserView,
-  MobileView,
-} from "react-device-detect";
+import Styles from './index.css'
+import { BrowserView } from 'react-device-detect'
 
 const SEL = 'custom-section';
 const SLIDE = 'slide';
@@ -86,6 +83,7 @@ class RootIndex extends React.Component {
           controlArrows={false}
           render={comp => (
             <ReactFullpage.Wrapper>
+              <BrowserView>
               {projects.map(({ node }, index) => (
                 <div key={node.slug} className={SEL}>
                     <div className="slide">
@@ -113,12 +111,12 @@ class RootIndex extends React.Component {
                   {node.gallery && 
                   <div className="slide">
                   {node.gallery.map((items, i) => (
-                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? 'multiple' : 'single'} />
+                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? Styles.multiple : Styles.single} />
                   ))}
                   </div>
                   }
                   {node.zine && <div className="slide">
-                    <Img fluid={node.zine.fluid} className='single'/>
+                    <Img fluid={node.zine.fluid} className={Styles.single} />
                   </div>}
                   {node.behindTheScene && 
                   <div className="slide">
@@ -132,6 +130,7 @@ class RootIndex extends React.Component {
                   </div>}
                 </div>
               ))}
+              </BrowserView>
             </ReactFullpage.Wrapper>
           )}
         />
