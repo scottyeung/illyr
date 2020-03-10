@@ -7,6 +7,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import ReactFullpage from '@fullpage/react-fullpage'
 import Styles from './index.css'
+import ReactPlayer from 'react-player'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 const SEL = 'custom-section';
@@ -61,14 +62,31 @@ class RootIndex extends React.Component {
   render() {
 
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulCv.edges')
     const projects = get(this, 'props.data.allContentfulProjects.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
       <Layout location={this.props.location} >
         <div style={{ background: '#000' }}>
           <Helmet title={siteTitle} />
+          <MobileView>
+          {projects.map(({ node }, index) => (
+            <div key={node.slug} class='project'>
+              <p className='title'>{node.title}</p>
+              <ReactPlayer       
+                width="100%"
+                controls 
+                crossOrigin="anonymous"
+                url={node.video} 
+                config={{
+                  file: {
+                    forceHLS: true,
+                    forceVideo: true,
+                  }
+                }} 
+              />
+            </div>
+          ))}
+          </MobileView>
           <BrowserView>
           <ReactFullpage
           licenseKey='' 
@@ -134,15 +152,6 @@ class RootIndex extends React.Component {
           )}
           />
           </BrowserView>
-          <MobileView>
-          {projects.map(({ node }, index) => {
-            <div key={node.slug} class='project'>
-              <p className='title'>{node.title}</p>
-              <video src={node.video}>
-              </video>
-            </div>
-          })}
-          </MobileView>
           </div>
         </Layout>
     )
