@@ -69,6 +69,7 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location} >
         <div style={{ background: '#000' }}>
           <Helmet title={siteTitle} />
+          <BrowserView>
           <ReactFullpage
           licenseKey='' 
           navigation={true}
@@ -83,7 +84,6 @@ class RootIndex extends React.Component {
           controlArrows={false}
           render={comp => (
             <ReactFullpage.Wrapper>
-              <BrowserView>
               {projects.map(({ node }, index) => (
                 <div key={node.slug} className={SEL}>
                     <div className="slide">
@@ -130,10 +130,10 @@ class RootIndex extends React.Component {
                   </div>}
                 </div>
               ))}
-              </BrowserView>
             </ReactFullpage.Wrapper>
           )}
         />
+        </BrowserView>
         </div>
       </Layout>
     )
