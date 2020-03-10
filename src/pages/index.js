@@ -74,17 +74,18 @@ class RootIndex extends React.Component {
               <p className='title'>{node.title}</p>
               <ReactPlayer       
                 width="100%"
-                controls 
+                controls
+                playsinline
                 crossOrigin="anonymous"
                 url={node.video}
-                playsinline
                 config={{
                   file: {
                     forceHLS: !isSafari,
                     forceVideo: true,
                     attributes: {
-                      disablePictureInPicture: true
-                    }
+                      disablePictureInPicture: true,
+                      preload: 'metadata'
+                    },
                   }
                 }}
               />
