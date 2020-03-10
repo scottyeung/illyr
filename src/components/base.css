@@ -109,7 +109,7 @@ video {
 .title, .sound {
   position: absolute;
   left: 5.5vmin;
-  font-size: 25px;
+  font-size: 23px;
   z-index: 2;
 }
 

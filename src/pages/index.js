@@ -7,7 +7,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import ReactFullpage from '@fullpage/react-fullpage'
 import Styles from './index.css'
-import { BrowserView } from 'react-device-detect'
+import { BrowserView, MobileView } from 'react-device-detect'
 
 const SEL = 'custom-section';
 const SLIDE = 'slide';
@@ -132,10 +132,19 @@ class RootIndex extends React.Component {
               ))}
             </ReactFullpage.Wrapper>
           )}
-        />
-        </BrowserView>
-        </div>
-      </Layout>
+          />
+          </BrowserView>
+          <MobileView>
+          {projects.map(({ node }, index) => {
+            <div key={node.slug} class='project'>
+              <p className='title'>{node.title}</p>
+              <video src={node.video}>
+              </video>
+            </div>
+          })}
+          </MobileView>
+          </div>
+        </Layout>
     )
   }
 }
