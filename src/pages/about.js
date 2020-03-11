@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styles from './cv.module.css'
@@ -9,6 +9,14 @@ import Draggable from 'react-draggable';
 import { BrowserView, MobileView } from "react-device-detect";
 
 class AboutIndex extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      x: 0,
+      y: 0
+    }
+  }
 
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -24,7 +32,7 @@ class AboutIndex extends React.Component {
           <div className="wrapper">
           <p className={styles.about} dangerouslySetInnerHTML={{__html: person.shortBio.childMarkdownRemark.html}} />
           <MobileView>
-          <div className="draggable" style={{height: '700px', width: '300px', overflow: 'hidden', position: 'relative'}}>
+          <div className="draggable" style={{height: '700px', width: '300px', overflowX: 'hidden', position: 'relative'}}>
           {person.draggableGallery.map((items, i) => (
             <Draggable key={i} handle=".handle" style={{position: 'relative'}}><div>
               <Img className="handle" fluid={items.fluid} style={{position: 'absolute', top: Math.floor(Math.random() * (min)), left: Math.floor(Math.random() * (max)), width: '200px'}} />
