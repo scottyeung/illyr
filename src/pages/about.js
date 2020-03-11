@@ -6,7 +6,7 @@ import styles from './cv.module.css'
 import Layout from "../components/layout"
 import Img from 'gatsby-image'
 import Draggable from 'react-draggable'; 
-import { MobileView } from "react-device-detect";
+import { BrowserView, MobileView } from "react-device-detect";
 
 class AboutIndex extends React.Component {
 
@@ -14,7 +14,8 @@ class AboutIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const person = get(this, 'props.data.allContentfulPerson.edges[0].node')
 
-    let max = 500, min = 900;
+    let max = 100, min = 300;
+    let d_max = 300, d_min = 300;
 
     return (
       <Layout location={this.props.location} >
@@ -23,14 +24,23 @@ class AboutIndex extends React.Component {
           <div className="wrapper">
           <p className={styles.about} dangerouslySetInnerHTML={{__html: person.shortBio.childMarkdownRemark.html}} />
           <MobileView>
-          <div className="draggable" style={{height: '300px', width: '100%', overflow:'hidden', position: 'relative'}}>
+          <div className="draggable" style={{height: '700px', width: '300px', overflow: 'hidden', position: 'relative'}}>
           {person.draggableGallery.map((items, i) => (
             <Draggable key={i} handle=".handle" style={{position: 'relative'}}><div>
-              <Img className="handle" fluid={items.fluid} style={{position: 'absolute', top: `Math.floor(Math.random() * (max) / 2)`, left: Math.floor(Math.random() * (min) / 2), width: '150px'}} />
+              <Img className="handle" fluid={items.fluid} style={{position: 'absolute', top: Math.floor(Math.random() * (min)), left: Math.floor(Math.random() * (max)), width: '200px'}} />
               </div></Draggable>
           ))}
           </div>
           </MobileView>
+          <BrowserView>
+          <div className="draggable" style={{height: '700px', width: '700px', position: 'relative'}}>
+          {person.draggableGallery.map((items, i) => (
+            <Draggable key={i} handle=".handle" style={{position: 'relative'}}><div className='handle'>
+              <Img fluid={items.fluid} style={{position: 'absolute', top: Math.floor(Math.random() * (d_min)), left: Math.floor(Math.random() * (d_max)), width: '300px'}} />
+              </div></Draggable>
+          ))}
+          </div>
+          </BrowserView>
           </div>
         </div>
       </Layout>
