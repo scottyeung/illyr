@@ -21,7 +21,7 @@ class RootIndex extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      muted: isChrome ? true : false,
+      muted: true,
       isBTS: false
     };
   }
