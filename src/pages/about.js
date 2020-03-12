@@ -30,7 +30,7 @@ class AboutIndex extends React.Component {
         <div className={styles.cv}>
           <Helmet title={siteTitle} />
           <div className="wrapper">
-          <p className={styles.about} dangerouslySetInnerHTML={{__html: person.shortBio.childMarkdownRemark.html}} />
+          <div className={styles.about} dangerouslySetInnerHTML={{__html: person.shortBio.childMarkdownRemark.html}} />
           <MobileView>
           <div className="draggable" style={{height: '700px', width: '300px', overflowX: 'hidden', position: 'relative'}}>
           {person.draggableGallery.map((items, i) => (
