@@ -69,12 +69,13 @@ class RootIndex extends React.Component {
         <div style={{ background: '#000' }}>
           <Helmet title={siteTitle} />
           <MobileView>
-          {projects.map(({ node }, index) => (
+          {projects.map(({ node }) => (
             <div key={node.slug} className='project'>
               <p className='title'>{node.title}</p>
               <ReactPlayer       
                 width="100%"
                 controls
+                light={true}
                 playsinline
                 playing={false}
                 crossOrigin="anonymous"
