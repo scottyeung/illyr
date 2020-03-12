@@ -21,7 +21,7 @@ class RootIndex extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      muted: true,
+      muted: isChrome ? true : false,
       isBTS: false
     };
   }
@@ -124,7 +124,7 @@ class RootIndex extends React.Component {
                         autoPlay
                         url={ node.video } 
                         playing={ index == this.state.currentIndex && !this.state.isBTS ? true : false }
-                        muted={ isChrome ? true : this.state.muted }
+                        muted={ this.state.muted }
                         loop
                         crossOrigin="anonymous"
                         config={{
