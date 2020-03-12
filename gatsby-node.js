@@ -5,7 +5,6 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
     resolve(
       graphql(
         `
@@ -15,6 +14,25 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   title
                   slug
+                  short
+                  publishDate(formatString: "MMMM Do, YYYY")
+                  tags
+                  description {
+                    childMarkdownRemark {
+                      html
+                    }
+                  }
+                }
+              }
+            }
+            allContentfulPerson {
+              edges {
+                node {
+                  shortBio {
+                    childMarkdownRemark {
+                      html
+                    }
+                  }
                 }
               }
             }
@@ -25,17 +43,6 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(result.errors)
           reject(result.errors)
         }
-
-        const posts = result.data.allContentfulCv.edges
-        posts.forEach((post, index) => {
-          createPage({
-            path: `/cv/${post.node.slug}/`,
-            component: blogPost,
-            context: {
-              slug: post.node.slug
-            },
-          })
-        })
       })
     )
   })
