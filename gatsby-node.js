@@ -14,7 +14,6 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   title
                   slug
-                  short
                   publishDate(formatString: "MMMM Do, YYYY")
                   tags
                   description {
