@@ -30,6 +30,8 @@ class RootIndex extends React.Component {
       this.setState({currentIndex: destination.index});      
   }
 
+
+
   handleAddSection() {
     this.setState(state => {
       const { fullpages } = state;
@@ -95,7 +97,6 @@ class RootIndex extends React.Component {
           </MobileView>
           <BrowserView>
           <ReactFullpage
-          debug
           licenseKey='' 
           navigation={true}
           navigationTooltips={['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']}
