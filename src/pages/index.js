@@ -77,7 +77,6 @@ class RootIndex extends React.Component {
                 controls
                 light={true}
                 playsinline
-                playing={false}
                 crossOrigin="anonymous"
                 url={node.video}
                 config={{
@@ -96,6 +95,7 @@ class RootIndex extends React.Component {
           </MobileView>
           <BrowserView>
           <ReactFullpage
+          debug
           licenseKey='' 
           navigation={true}
           navigationTooltips={['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']}

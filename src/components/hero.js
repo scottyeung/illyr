@@ -2,11 +2,6 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import styles from './hero.module.css'
 
-const isIos = () => {
-  const userAgent = window.navigator.userAgent.toLowerCase() // Detects iOS devices
-  return /iphone|ipad|ipod/.test(userAgent)
-}
-
 export default ({ data, isPlaying, muted }) => (
   <div className={styles.hero}>
     <ReactPlayer
@@ -17,8 +12,9 @@ export default ({ data, isPlaying, muted }) => (
       url={data} 
       config={{
         file: {
-          forceHLS: !isIos,
+          forceHLS: true,
           forceVideo: true,
+          hlsVersion: '0.13.2',
           attributes: {
             'data-keepplaying': ''
           }
