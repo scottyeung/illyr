@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import ReactFullpage from '@fullpage/react-fullpage'
 import Styles from './index.css'
 import ReactPlayer from 'react-player'
-import { BrowserView, MobileView, isSafari } from 'react-device-detect'
+import { BrowserView, MobileView, isSafari, isChrome } from 'react-device-detect'
 
 const SEL = 'custom-section';
 const SLIDE = 'slide';
@@ -21,7 +21,7 @@ class RootIndex extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      muted: false,
+      muted: true,
       isBTS: false
     };
   }
@@ -71,13 +71,12 @@ class RootIndex extends React.Component {
         <div style={{ background: '#000' }}>
           <Helmet title={siteTitle} />
           <MobileView>
-          {projects.map(({ node }) => (
+          {projects.map(({ node }, index) => (
             <div key={node.slug} className='project'>
               <p className='title'>{node.title}</p>
               <ReactPlayer       
                 width="100%"
                 controls
-                light={true}
                 playsinline
                 crossOrigin="anonymous"
                 url={node.video}
@@ -87,7 +86,6 @@ class RootIndex extends React.Component {
                     forceVideo: true,
                     attributes: {
                       disablePictureInPicture: true,
-                      preload: 'none'
                     },
                   }
                 }}
@@ -120,10 +118,25 @@ class RootIndex extends React.Component {
                           src='./speaker.svg'
                         />
                       </div>
-                      <Hero
-                            data={node.video} 
-                            isPlaying={ index == this.state.currentIndex && !this.state.isBTS ? true : false }
-                            muted={ this.state.muted }
+                      <ReactPlayer
+                        width="100%"
+                        height="100vh"
+                        autoPlay
+                        url={ index == this.state.currentIndex && !this.state.isBTS ? node.video : ''} 
+                        playing={ index == this.state.currentIndex && !this.state.isBTS ? true : false }
+                        muted={ isChrome ? true : this.state.muted }
+                        loop
+                        crossOrigin="anonymous"
+                        config={{
+                          file: {
+                            forceHLS: true,
+                            forceVideo: true,
+                            hlsVersion: '0.13.2',
+                            attributes: {
+                              'data-keepplaying': ''
+                            }
+                          }
+                        }}
                       />
                     </div>
                   <div className="slide">

@@ -7,6 +7,7 @@ export default ({ data, isPlaying, muted }) => (
     <ReactPlayer
       width="100%"
       height="100vh"
+      autoPlay
       muted={muted} playing={isPlaying} loop
       crossOrigin="anonymous"
       url={data} 
