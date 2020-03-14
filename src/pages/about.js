@@ -32,7 +32,7 @@ class AboutIndex extends React.Component {
           <div className="wrapper">
           <div className={styles.about} dangerouslySetInnerHTML={{__html: person.shortBio.childMarkdownRemark.html}} />
           <MobileView>
-          <div className="draggable" style={{height: '700px', width: '300px', overflowX: 'hidden', position: 'relative'}}>
+          <div className="draggable" style={{height: '700px', overflowX: 'hidden', position: 'relative'}}>
           {person.draggableGallery.map((items, i) => (
             <Draggable key={i} handle=".handle" style={{position: 'relative'}}><div>
               <Img className="handle" fluid={items.fluid} style={{position: 'absolute', top: Math.floor(Math.random() * (min)), left: Math.floor(Math.random() * (max)), width: '200px'}} />
@@ -41,7 +41,7 @@ class AboutIndex extends React.Component {
           </div>
           </MobileView>
           <BrowserView>
-          <div className="draggable" style={{height: '700px', width: '700px', position: 'relative'}}>
+          <div className="draggable" style={{position: 'relative', height: '700px'}}>
           {person.draggableGallery.map((items, i) => (
             <Draggable key={i} handle=".handle" style={{position: 'relative'}}><div className='handle'>
               <Img fluid={items.fluid} style={{position: 'absolute', top: Math.floor(Math.random() * (d_min)), left: Math.floor(Math.random() * (d_max)), width: '300px'}} />

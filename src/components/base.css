@@ -273,6 +273,9 @@ fp-slidesNav ul li a.active span {
   .article-list .divTableCell:nth-child(2) {
     width: 100%;
   }
+  .draggable {
+    width: 300px;
+  }
 }
 
 .sound {
@@ -404,4 +407,5 @@ p {
   margin: 0 auto;
   padding-top: 40px;
   overflow-x: hidden;
+  width: 700px;
 }
