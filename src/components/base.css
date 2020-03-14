@@ -274,7 +274,7 @@ fp-slidesNav ul li a.active span {
     width: 100%;
   }
   .draggable {
-    width: 300px;
+    width: 300px !important;
   }
 }
 
