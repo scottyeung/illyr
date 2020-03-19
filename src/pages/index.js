@@ -122,7 +122,7 @@ class RootIndex extends React.Component {
                         width="100%"
                         height="100vh"
                         autoPlay
-                        url={ node.video } 
+                        url={ index == this.state.currentIndex ? node.video : '' } 
                         playing={ index == this.state.currentIndex && !this.state.isBTS ? true : false }
                         muted={ this.state.muted }
                         loop
