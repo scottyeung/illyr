@@ -19,6 +19,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'i l l y r',
+    siteUrl: `https://illyr.net`
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -26,10 +27,12 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
+    
     // 'gatsby-plugin-react-image-map'
   ],
 }
