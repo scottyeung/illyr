@@ -11398,10 +11398,10 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-react-player@2.0.0-alpha.0:
-  version "2.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/react-player/-/react-player-2.0.0-alpha.0.tgz#c3d3007ef91cda692a2e233866bdc4815fcbc629"
-  integrity sha512-Ob6pu5QKrGgfhAsT4gd9KZdvuOvbIp+jInbcXnEtoHWcCj7tLAlKNLXkGqKzP9WY4cZ9joN3fpOi+blePPoIRQ==
+react-player@^1.15.2:
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/react-player/-/react-player-1.15.2.tgz#b348df962dbdba39242e8c6edef1df479531a00b"
+  integrity sha512-8KWo2ZQU9OnTx5Yp7eKRh/jGadSc436MOqJ+7c7RryfOXeuY938yZ2Osvh6bZY+etMWXDBHqXm14Vv9SoGb68g==
   dependencies:
     deepmerge "^4.0.0"
     load-script "^1.0.0"
