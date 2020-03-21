@@ -11,7 +11,6 @@ import ReactPlayer from 'react-player'
 import { BrowserView, MobileView, isSafari } from 'react-device-detect'
 import LazyLoad from 'react-lazyload';
 
-
 const SEL = 'custom-section';
 const SLIDE = 'slide';
 const SECTION_SEL = `.${SEL}`;
@@ -89,6 +88,9 @@ class RootIndex extends React.Component {
                     forceVideo: true,
                     attributes: {
                       disablePictureInPicture: true,
+                    },
+                    hlsOptions: {
+                      maxBufferLength: 5
                     }
                   }
                 }}
@@ -135,7 +137,6 @@ class RootIndex extends React.Component {
                           file: {
                             forceHLS: true,
                             forceVideo: true,
-                            hlsVersion: '0.13.2',
                             attributes: {
                               'data-keepplaying': ''
                             }
@@ -154,12 +155,12 @@ class RootIndex extends React.Component {
                   {node.gallery && 
                   <div className="slide">
                   {node.gallery.map((items, i) => (
-                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? Styles.multiple : Styles.single} />
+                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? 'multiple' : 'single'} />
                   ))}
                   </div>
                   }
                   {node.zine && <div className="slide">
-                    <Img fluid={node.zine.fluid} className={Styles.single} />
+                    <Img fluid={node.zine.fluid} className={'single'} />
                   </div>}
                   {node.behindTheScene && 
                   <div className="slide">
