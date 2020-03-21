@@ -23,7 +23,7 @@
     "react-full-page": "^0.1.7",
     "react-helmet": "^5.2.1",
     "react-lazyload": "^2.6.5",
-    "react-player": "^1.15.2",
+    "react-player": "2.0.0-alpha.0",
     "sharp": "^0.22.0",
     "videojs": "^1.0.0"
   },

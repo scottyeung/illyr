@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
@@ -8,7 +8,9 @@ import Layout from '../components/layout'
 import ReactFullpage from '@fullpage/react-fullpage'
 import Styles from './index.css'
 import ReactPlayer from 'react-player'
-import { BrowserView, MobileView, isSafari, isChrome } from 'react-device-detect'
+import { BrowserView, MobileView, isSafari } from 'react-device-detect'
+import LazyLoad from 'react-lazyload';
+
 
 const SEL = 'custom-section';
 const SLIDE = 'slide';
@@ -74,6 +76,7 @@ class RootIndex extends React.Component {
           {projects.map(({ node }, index) => (
             <div key={node.slug} className='project'>
               <p className='title'>{node.title}</p>
+              <LazyLoad height={600}>
               <ReactPlayer       
                 width="100%"
                 controls
@@ -86,10 +89,11 @@ class RootIndex extends React.Component {
                     forceVideo: true,
                     attributes: {
                       disablePictureInPicture: true,
-                    },
+                    }
                   }
                 }}
               />
+              </LazyLoad>
             </div>
           ))}
           </MobileView>
