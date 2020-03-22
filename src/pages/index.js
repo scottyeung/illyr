@@ -90,7 +90,7 @@ class RootIndex extends React.Component {
                       disablePictureInPicture: true,
                     },
                     hlsOptions: {
-                      maxBufferLength: 5
+                      maxBufferLength: 1
                     }
                   }
                 }}
