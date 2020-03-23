@@ -6,7 +6,6 @@ import Hero from '../components/hero'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import ReactFullpage from '@fullpage/react-fullpage'
-import Styles from './index.css'
 import ReactPlayer from 'react-player'
 import { BrowserView, MobileView, isSafari } from 'react-device-detect'
 import LazyLoad from 'react-lazyload';
