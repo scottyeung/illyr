@@ -84,7 +84,7 @@ class RootIndex extends React.Component {
                 url={node.video}
                 config={{
                   file: {
-                    forceHLS: true,
+                    forceHLS: !isSafari,
                     forceVideo: true,
                     attributes: {
                       disablePictureInPicture: true,
