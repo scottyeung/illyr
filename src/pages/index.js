@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
+import Styles from './index.css'
 import ReactFullpage from '@fullpage/react-fullpage'
 import ReactPlayer from 'react-player'
 import { BrowserView, MobileView, isSafari } from 'react-device-detect'
@@ -140,12 +141,12 @@ class RootIndex extends React.Component {
                   {node.gallery && 
                   <div className="slide">
                   {node.gallery.map((items, i) => (
-                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? 'multiple' : 'single'} />
+                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? Styles.multiple : Styles.single} />
                   ))}
                   </div>
                   }
                   {node.zine && <div className="slide">
-                    <Img fluid={node.zine.fluid} className={'single'} />
+                    <Img fluid={node.zine.fluid} className={Styles.single} />
                   </div>}
                   {node.behindTheScene && 
                   <div className="slide">
