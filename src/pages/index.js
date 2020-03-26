@@ -141,12 +141,12 @@ class RootIndex extends React.Component {
                   {node.gallery && 
                   <div className="slide">
                   {node.gallery.map((items, i) => (
-                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? Styles.multiple : Styles.single} />
+                    <Img key={i} fluid={items.fluid} className={node.gallery.length > 1 ? 'multiple' : 'single'} />
                   ))}
                   </div>
                   }
                   {node.zine && <div className="slide">
-                    <Img fluid={node.zine.fluid} className={Styles.single} />
+                    <Img fluid={node.zine.fluid} className={'single'} />
                   </div>}
                   {node.behindTheScene && 
                   <div className="slide">
