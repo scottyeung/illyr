@@ -83,7 +83,7 @@ class RootIndex extends React.Component {
                 url={node.video}
                 config={{
                   file: {
-                    forceHLS: !isSafari,
+                    forceHLS: true,
                     forceVideo: true,
                     attributes: {
                       disablePictureInPicture: true,
@@ -123,24 +123,10 @@ class RootIndex extends React.Component {
                           src='./speaker.svg'
                         />
                       </div>
-                      <ReactPlayer
-                        width="100%"
-                        height="100vh"
-                        autoPlay
-                        url={ node.video } 
-                        playing={ index == this.state.currentIndex && !this.state.isBTS ? true : false }
+                      <Hero
+                        data={ index == this.state.currentIndex && !this.state.isBTS ? node.video : '' } 
+                        isPlaying={ index == this.state.currentIndex && !this.state.isBTS ? true : false }
                         muted={ this.state.muted }
-                        loop
-                        crossOrigin="anonymous"
-                        config={{
-                          file: {
-                            forceHLS: true,
-                            forceVideo: true,
-                            attributes: {
-                              'data-keepplaying': ''
-                            }
-                          }
-                        }}
                       />
                     </div>
                   <div className="slide">
