@@ -369,6 +369,27 @@ p {
   padding-bottom: 0px;
 }
 
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.support {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 121px;
+  padding-left: 12px;
+}
+
+.support > img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  padding-bottom: 5px;
+}
+
 .press {
   text-align: right;
   font-size: 12px;
